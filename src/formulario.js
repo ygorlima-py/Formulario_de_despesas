@@ -64,7 +64,7 @@ export default function FormularioDespesas() {
       return;
     }
     try {
-      const resposta = await fetch("https://script.google.com/macros/s/AKfycbyJpLLuom4HsJ73M3RpuCjy_Zx9wDZzsevw4VmnKX08_-lfHflhQ3TQ_d2pE_Ad7eT5ww/exec", {
+      const resposta = await fetch("/api/proxy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(registros)
