@@ -13,8 +13,8 @@ export default async function handler(req, res) {
         body: JSON.stringify(req.body),
       }
     );
-    const dados = await resposta.text(); // ou .json() se a resposta for JSON
-    res.status(200).send(dados);
+    const dados = await resposta.json(); // Garante que sempre retorna JSON
+    res.status(200).json(dados);
   } catch (e) {
     res.status(500).json({ error: "Erro ao enviar para o Apps Script", details: e.message });
   }
