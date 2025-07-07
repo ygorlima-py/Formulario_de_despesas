@@ -1,3 +1,9 @@
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Método não permitido" });
@@ -5,12 +11,20 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Lê o body manualmente como buffer
+    const buffers = [];
+    for await (const chunk of req) {
+      buffers.push(chunk);
+    }
+    const rawBody = Buffer.concat(buffers).toString();
+    
+    // Envia o body bruto para o Apps Script
     const resposta = await fetch(
       "https://script.google.com/macros/s/AKfycbyJpLLuom4HsJ73M3RpuCjy_Zx9wDZzsevw4VmnKX08_-lfHflhQ3TQ_d2pE_Ad7eT5ww/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: typeof req.body === "string" ? req.body : JSON.stringify(req.body),
+        body: rawBody,
       }
     );
     let dados;
