@@ -154,4 +154,7 @@ h1 {
     font-size: 1.3rem;
     padding: 10px 0;
   }
+  .formulario input[type="date"] {
+    text-align: center;
+  }
 }
