@@ -30,9 +30,9 @@ export default function FormularioDespesas() {
     discriminacao: "",
     fornecedor: "",
     cidade: "",
-    nf: "-",
+    nf: "",
     data: "",
-    quantidade: 1,
+    quantidade: "",
     valor: ""
   });
 
@@ -40,7 +40,9 @@ export default function FormularioDespesas() {
   // Aqui os dados do formulário são salvos em formato JSON no localStorage na chave "despesas"
   const salvar = () => {
     const registros = JSON.parse(localStorage.getItem("despesas") || "[]");
-    registros.push({ ...form, id: Date.now() });
+    // Se não for digitado nada em nf, salva como "-"
+    const nfFinal = form.nf && form.nf.trim() !== "" ? form.nf : "-";
+    registros.push({ ...form, nf: nfFinal, quantidade: form.quantidade, id: Date.now() });
     localStorage.setItem("despesas", JSON.stringify(registros)); // <-- Salva o array atualizado em JSON
     setForm({
       mes: "",
@@ -48,9 +50,9 @@ export default function FormularioDespesas() {
       discriminacao: "",
       fornecedor: "",
       cidade: "",
-      nf: "-",
+      nf: "",
       data: "",
-      quantidade: 1,
+      quantidade: "",
       valor: ""
     });
     alert("Despesa salva localmente!");
@@ -145,7 +147,7 @@ export default function FormularioDespesas() {
           type="text"
           value={form.nf}
           onChange={e => setForm({ ...form, nf: e.target.value })}
-          placeholder="-"
+          placeholder=""
         />
 
         <label>Data:</label>
@@ -161,7 +163,7 @@ export default function FormularioDespesas() {
           type="number"
           value={form.quantidade}
           min={1}
-          onChange={e => setForm({ ...form, quantidade: Number(e.target.value) })}
+          onChange={e => setForm({ ...form, quantidade: e.target.value })}
           required
         />
 
