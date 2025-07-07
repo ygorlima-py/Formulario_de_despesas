@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  min-height: 100vh;
+  color: #f3f3f3;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  color: #f3f3f3;
+  font-size: 2.2rem;
+  margin: 40px auto 24px auto;
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  padding: 18px 0;
+  max-width: 520px;
+  width: 100%;
+  border: 1px solid #444;
+}
+
+.formulario {
+  background: #232526;
+  max-width: 440px;
+  margin: 0 auto 32px auto;
+  padding: 36px 32px 28px 32px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.32);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.formulario label {
+  font-weight: 600;
+  color: #f3f3f3;
+  margin-bottom: 4px;
+  align-self: flex-start;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.formulario input,
+.formulario select {
+  padding: 14px 14px;
+  border: 1.5px solid #444;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  background: #2d2f31;
+  color: #f3f3f3;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+  border-color: #fda085;
+  box-shadow: 0 0 0 2px #fda08533;
+}
+
+.formulario input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
+
+.formulario button {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  color: #232526;
+  border: none;
+  padding: 24px 0;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 18px;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 16px rgba(253,160,133,0.18);
+  width: 100%;
+  font-family: 'Poppins', Arial, sans-serif;
+  text-align: center;
+  display: block;
+  letter-spacing: 1px;
+}
+
+.formulario button:active {
+  transform: scale(0.98);
+}
+
+.formulario button:disabled {
+  background: #444;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .formulario {
+    padding: 18px 8px 14px 8px;
+    max-width: 98vw;
+  }
+  h1 {
+    font-size: 1.3rem;
+    padding: 10px 0;
+  }
+}
