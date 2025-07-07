@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(req.body),
+        body: typeof req.body === "string" ? req.body : JSON.stringify(req.body),
       }
     );
     let dados;
