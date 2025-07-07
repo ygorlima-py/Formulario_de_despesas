@@ -42,7 +42,20 @@ export default function FormularioDespesas() {
     const registros = JSON.parse(localStorage.getItem("despesas") || "[]");
     // Se não for digitado nada em nf, salva como "-"
     const nfFinal = form.nf && form.nf.trim() !== "" ? form.nf : "-";
-    registros.push({ ...form, nf: nfFinal, quantidade: form.quantidade, id: Date.now() });
+    // Converte todos os campos de texto para maiúsculo antes de salvar
+    const registroMaiusculo = {
+      ...form,
+      mes: form.mes.toUpperCase(),
+      indicador: form.indicador.toUpperCase(),
+      discriminacao: form.discriminacao.toUpperCase(),
+      fornecedor: form.fornecedor.toUpperCase(),
+      cidade: form.cidade.toUpperCase(),
+      nf: nfFinal.toUpperCase(),
+      quantidade: form.quantidade,
+      valor: form.valor,
+      id: Date.now()
+    };
+    registros.push(registroMaiusculo);
     localStorage.setItem("despesas", JSON.stringify(registros)); // <-- Salva o array atualizado em JSON
     setForm({
       mes: "",

@@ -89,6 +89,22 @@ h1 {
   margin-bottom: 4px;
   align-self: flex-start;
   font-family: 'Poppins', Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.formulario select {
+  padding: 14px 14px;
+  border: 1.5px solid #444;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  background: #2d2f31;
+  color: #f3f3f3;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+  text-transform: uppercase;
 }
 
 .formulario input,
@@ -104,6 +120,7 @@ h1 {
   width: 100%;
   box-sizing: border-box;
   font-family: 'Poppins', Arial, sans-serif;
+  text-transform: uppercase;
 }
 
 .formulario input:focus,
