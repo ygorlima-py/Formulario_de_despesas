@@ -46,7 +46,7 @@ export default function FormularioDespesas() {
     const registroMaiusculo = {
       ...form,
       mes: form.mes.toUpperCase(),
-      indicador: form.indicador.toUpperCase(),
+      indicador: form.indicador,
       discriminacao: form.discriminacao.toUpperCase(),
       fornecedor: form.fornecedor.toUpperCase(),
       cidade: form.cidade.toUpperCase(),
