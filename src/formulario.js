@@ -35,7 +35,6 @@ export default function FormularioDespesas() {
     quantidade: "",
     valor: ""
   });
-  const [enviando, setEnviando] = useState(false);
 
   // Salva cada registro como um novo item no localStorage
   // Aqui os dados do formulário são salvos em formato JSON no localStorage na chave "despesas"
@@ -84,7 +83,6 @@ export default function FormularioDespesas() {
       alert("Nenhum dado para enviar.");
       return;
     }
-    setEnviando(true);
     try {
       const resposta = await fetch("/api/proxy", {
         method: "POST",
@@ -100,8 +98,6 @@ export default function FormularioDespesas() {
       }
     } catch (e) {
       alert("Erro de conexão ao enviar dados: " + e.message);
-    } finally {
-      setEnviando(false);
     }
   };
 
@@ -189,7 +185,7 @@ export default function FormularioDespesas() {
           required
         />
 
-        <label>Valor R$:</label>
+        <label>Valor:</label>
         <input
           type="number"
           step="0.01"
@@ -200,13 +196,13 @@ export default function FormularioDespesas() {
 
         <div style={{ marginTop: 16 }}>
           <button type="button" onClick={salvar}>SALVAR</button>
-          <button type="button" onClick={enviarDados} disabled={enviando}>{enviando ? "ENVIANDO..." : "ENVIAR"}</button>
+          <button type="button" onClick={enviarDados}>ENVIAR</button>
         </div>
       </form>
       <footer style={{
         marginTop: 32,
         textAlign: 'center',
-        color: '#FFFFFF',
+        color: '#aaa',
         fontSize: '1rem',
         fontFamily: 'Poppins, Arial, sans-serif'
       }}>

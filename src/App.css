@@ -59,7 +59,7 @@ h1 {
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.18);
   padding: 18px 0;
-  max-width: 520px;
+  max-width: 500px;
   width: 100%;
   border: 1px solid #444;
 }
@@ -145,22 +145,22 @@ h1 {
 }
 
 .formulario button {
-  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
-  color: #232526;
+  background: linear-gradient(90deg, #f6d365, #fda085);
   border: none;
-  padding: 24px 0;
   border-radius: 12px;
+  box-shadow: 0 2px 16px #fda0852e;
+  color: #232526;
+  cursor: pointer;
+  display: block;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  cursor: pointer;
-  margin-top: 18px;
-  transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 2px 16px rgba(253,160,133,0.18);
-  width: 100%;
-  font-family: 'Poppins', Arial, sans-serif;
-  text-align: center;
-  display: block;
   letter-spacing: 1px;
+  margin-top: 18px;
+  padding: 24px 0;
+  text-align: center;
+  transition: background .2s, transform .1s;
+  width: 100%;
 }
 
 .formulario button:active {
@@ -180,12 +180,12 @@ h1 {
   }
   h1 {
     font-size: 1.3rem;
-    padding: 10px 0;
+    padding: 10px 0px;
+    margin-right: 2px;
   }
   .formulario input[type="date"] {
-    text-align: center;
-    /* Para garantir centralização em todos navegadores mobile */
-    -webkit-text-align-last: center;
-    text-align-last: center;
+    text-align:center;
+    font-size: 0.95rem;
+    /* align-content: center; */
   }
 }

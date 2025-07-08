@@ -24,10 +24,10 @@ code {
 }
 
 .formulario button {
-  width: 80% !important;
-  box-sizing: border-box;
-  min-width: 400px;
-  max-width: 600px;
-  font-size: 1.2rem;
-  padding: 16px 0;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    max-width: 50px;
+    min-width: 300px;
+    padding: 16px 0;
+    width: 80% !important;
 }
