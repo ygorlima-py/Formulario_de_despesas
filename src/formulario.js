@@ -35,10 +35,16 @@ export default function FormularioDespesas() {
     quantidade: "",
     valor: ""
   });
+  const [enviando, setEnviando] = useState(false);
 
   // Salva cada registro como um novo item no localStorage
   // Aqui os dados do formulário são salvos em formato JSON no localStorage na chave "despesas"
   const salvar = () => {
+    // Validação obrigatória dos campos (exceto nf)
+    if (!form.mes || !form.indicador || !form.discriminacao || !form.fornecedor || !form.cidade || !form.data || !form.quantidade || !form.valor) {
+      alert("Preencha todos os campos obrigatórios antes de salvar!");
+      return;
+    }
     const registros = JSON.parse(localStorage.getItem("despesas") || "[]");
     // Se não for digitado nada em nf, salva como "-"
     const nfFinal = form.nf && form.nf.trim() !== "" ? form.nf : "-";
@@ -78,6 +84,7 @@ export default function FormularioDespesas() {
       alert("Nenhum dado para enviar.");
       return;
     }
+    setEnviando(true);
     try {
       const resposta = await fetch("/api/proxy", {
         method: "POST",
@@ -93,6 +100,8 @@ export default function FormularioDespesas() {
       }
     } catch (e) {
       alert("Erro de conexão ao enviar dados: " + e.message);
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -180,7 +189,7 @@ export default function FormularioDespesas() {
           required
         />
 
-        <label>Valor:</label>
+        <label>Valor R$:</label>
         <input
           type="number"
           step="0.01"
@@ -190,14 +199,14 @@ export default function FormularioDespesas() {
         />
 
         <div style={{ marginTop: 16 }}>
-          <button type="button" onClick={salvar}>Salvar</button>
-          <button type="button" style={{ marginLeft: 8 }} onClick={enviarDados}>Enviar</button>
+          <button type="button" onClick={salvar}>SALVAR</button>
+          <button type="button" onClick={enviarDados} disabled={enviando}>{enviando ? "ENVIANDO..." : "ENVIAR"}</button>
         </div>
       </form>
       <footer style={{
         marginTop: 32,
         textAlign: 'center',
-        color: '#aaa',
+        color: '#FFFFFF',
         fontSize: '1rem',
         fontFamily: 'Poppins, Arial, sans-serif'
       }}>

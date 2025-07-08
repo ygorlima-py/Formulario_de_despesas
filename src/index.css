@@ -25,9 +25,8 @@ code {
 
 .formulario button {
   width: 80% !important;
-  margin-left: 10% !important;
   box-sizing: border-box;
-  min-width: 180px;
+  min-width: 400px;
   max-width: 600px;
   font-size: 1.2rem;
   padding: 16px 0;
