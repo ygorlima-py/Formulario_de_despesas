@@ -91,7 +91,7 @@ export default function FormularioDespesas() {
       });
       const resultado = await resposta.json();
       if (resultado.status === "ok") {
-        alert("Dados enviados com sucesso!");
+        alert("Dados enviados com sucesso! \nValor total: R$ " + resultado.total);
         localStorage.removeItem("despesas"); // Limpa os dados locais após envio
       } else {
         alert("Erro ao enviar dados: " + JSON.stringify(resultado));
